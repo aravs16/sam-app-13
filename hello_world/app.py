@@ -5,6 +5,7 @@ import json
 
 def lambda_handler(event, context):
     print(event)
+    print("End of Messages")
 
     return {
         "statusCode": 200,
