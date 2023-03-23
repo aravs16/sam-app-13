@@ -15,7 +15,7 @@ Resources:
   MySQSQueue:
     Type: 'AWS::SQS::Queue'
     Properties:
-      QueueName: sam-app-13-queue-2
+      QueueName: sam-app-13-queue-3
 
   MyLambdaFunction:
     Type: 'AWS::Serverless::Function'
