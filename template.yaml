@@ -34,4 +34,3 @@ Resources:
       EventSourceArn: !GetAtt MySQSQueue.Arn
       FunctionName: !Ref MyLambdaFunction
       MaximumBatchingWindowInSeconds: 120
-      ParallelizationFactor: 10
