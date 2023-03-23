@@ -24,7 +24,7 @@ Resources:
   MySQSQueue:
     Type: 'AWS::SQS::Queue'
     Properties:
-      QueueName: MySQSQueue
+      QueueName: sam-app-13-queue
 
   MySQSEventSourceMapping:
     Type: 'AWS::Lambda::EventSourceMapping'
