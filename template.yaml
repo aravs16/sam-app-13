@@ -12,6 +12,11 @@ Globals:
     MemorySize: 128
 
 Resources:
+  MySQSQueue:
+    Type: 'AWS::SQS::Queue'
+    Properties:
+      QueueName: sam-app-13-queue-2
+
   MyLambdaFunction:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -20,11 +25,11 @@ Resources:
       Handler: app.lambda_handler
       MemorySize: 128
       Timeout: 300
-
-  MySQSQueue:
-    Type: 'AWS::SQS::Queue'
-    Properties:
-      QueueName: sam-app-13-queue
+      Events:
+        MySQSEvent:
+          Type: SQS
+          Properties:
+            Queue: !Ref MySQSQueue
 
   MySQSEventSourceMapping:
     Type: 'AWS::Lambda::EventSourceMapping'
