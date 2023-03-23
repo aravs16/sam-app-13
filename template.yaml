@@ -5,17 +5,11 @@ Description: >
 
   Sample SAM Template for sam-app-13
 
-# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
-Globals:
-  Function:
-    Timeout: 3
-    MemorySize: 128
-
 Resources:
   MySQSQueue:
     Type: 'AWS::SQS::Queue'
     Properties:
-      QueueName: sam-app-13-queue-8
+      QueueName: sam-app-13-queue9
       VisibilityTimeout: 300
 
   MyLambdaFunction:
@@ -31,6 +25,6 @@ Resources:
     Type: 'AWS::Lambda::EventSourceMapping'
     Properties:
       BatchSize: 3
-      EventSourceArn: arn:aws:sqs:us-east-1:577316646182:sam-app-13-queue-8
+      EventSourceArn: !GetAtt MySQSQueue.Arn
       FunctionName: !GetAtt MyLambdaFunction.Arn
       MaximumBatchingWindowInSeconds: 120
