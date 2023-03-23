@@ -13,7 +13,7 @@ env:
   PIPELINE_USER_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   PIPELINE_USER_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   SAM_TEMPLATE: template.yaml
-  TESTING_STACK_NAME: samp-app-13-dev4
+  TESTING_STACK_NAME: samp-app-13-dev5
   TESTING_PIPELINE_EXECUTION_ROLE: arn:aws:iam::577316646182:role/aws-sam-cli-managed-dev-pipe-PipelineExecutionRole-UYUJJBAKCEAD
   TESTING_CLOUDFORMATION_EXECUTION_ROLE: arn:aws:iam::577316646182:role/aws-sam-cli-managed-dev-p-CloudFormationExecutionR-XQ2TY4DVOJM2
   TESTING_ARTIFACTS_BUCKET: aws-sam-cli-managed-dev-pipeline-artifactsbucket-1k1rwqfr6kr8v
