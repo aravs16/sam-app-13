@@ -15,7 +15,7 @@ Resources:
   MySQSQueue:
     Type: 'AWS::SQS::Queue'
     Properties:
-      QueueName: sam-app-13-queue-6
+      QueueName: sam-app-13-queue-7
       VisibilityTimeout: 300
 
   MyLambdaFunction:
@@ -36,6 +36,6 @@ Resources:
     Type: 'AWS::Lambda::EventSourceMapping'
     Properties:
       BatchSize: 3
-      EventSourceArn: arn:aws:sqs:us-east-1:577316646182:sam-app-13-queue-6
-      FunctionName: !Ref MyLambdaFunction
+      EventSourceArn: arn:aws:sqs:us-east-1:577316646182:sam-app-13-queue-7
+      FunctionName: !GetAtt MyLambdaFunction.Arn
       MaximumBatchingWindowInSeconds: 120
