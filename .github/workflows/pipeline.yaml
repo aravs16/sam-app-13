@@ -10,11 +10,11 @@ on:
       - 'feature**'
 
 env:
-  PIPELINE_USER_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  PIPELINE_USER_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  PIPELINE_USER_ACCESS_KEY_ID: ${{ secrets.PROD_KEY }}
+  PIPELINE_USER_SECRET_ACCESS_KEY: ${{ secrets.PROD_SECRET }}
   SAM_TEMPLATE: template.yaml
-
-  PROD_STACK_NAME: sam-app-prod-new-pp
+  
+  PROD_STACK_NAME: sam-pp-prod
   PROD_PIPELINE_EXECUTION_ROLE: arn:aws:iam::548013151166:role/aws-sam-cli-managed-prod-pip-PipelineExecutionRole-11JUPYKYX3KSF
   PROD_CLOUDFORMATION_EXECUTION_ROLE: arn:aws:iam::548013151166:role/aws-sam-cli-managed-prod-CloudFormationExecutionR-11XZUSAUDETIQ
   PROD_ARTIFACTS_BUCKET: aws-sam-cli-managed-prod-pipeline-artifactsbucket-1pr7b3qke682t
@@ -70,8 +70,10 @@ jobs:
           name: packaged-prod.yaml
           path: packaged-prod.yaml
 
+ 
   deploy-prod:
     if: github.ref == 'refs/heads/main'
+    needs: [build-and-package]
     runs-on: ubuntu-latest
     # Configure GitHub Action Environment to have a manual approval step before deployment to production
     # https://docs.github.com/en/actions/reference/environments
